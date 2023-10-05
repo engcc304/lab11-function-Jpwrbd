@@ -23,12 +23,42 @@
     Output:
         Not Pass.
 */
-
 #include <stdio.h>
+int sum(int i){
+    //หลัก
+    int count = 0 ;
+        if(i<10){ 
+        count = 1 ;
+        }else if(i<100){
+        count = 2 ;
+        }else if (i<1000){  
+        count = 3 ;
+        }
+    //หลักตัวที่
+    int H1 = i / 100 ; // 1 int ตัดตัวเเปรทศนิยมออก เอาเเต่เลขจำนวนเต็ม 1.53 จึงเหลือ 1 
+    int H2 = (i - H1 * 100) / 10 ; //153 - 100 = 53/10 =5.3 = 5
+    int H3 = (i - (H1 * 100 + H2 * 10)) ; // (i = user input - (H1 = 1 * 100 + H2 = 5 * 10))
+    return H1 * H1 *H1 + H2 * H2 * H2 + H3 * H3 * H3 ; //ส่งค่ากลับไปให้ int main
+}
 
-int main() {
+    int main(){
+    printf( "Enter Number: \n" ) ;
+    int number ;
+    scanf("%d", &number) ;
+    int number2 = sum(number) ;
+    if(number2 == number){
+        printf( "Pass." ) ;
+    }else{
+        printf( "Not Pass." ) ;
+    }
 
-    //--| YOUR CODE HERE
+return 0 ;
+}
 
-    return 0 ;
-}//end main function
+
+
+
+
+
+
+
